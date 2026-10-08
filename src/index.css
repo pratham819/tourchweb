@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --background: #faf8f5;
+  --foreground: #1a1916;
+  --card: #ffffff;
+  --card-foreground: #1a1916;
+  --primary: #c9a96e;
+  --primary-foreground: #0f0e0c;
+  --secondary: #f0ede8;
+  --secondary-foreground: #1a1916;
+  --muted: #f5f2ec;
+  --muted-foreground: #6b6560;
+  --accent: #c9a96e;
+  --accent-foreground: #0f0e0c;
+  --border: rgba(26, 25, 22, 0.08);
+  --ring: #c9a96e;
+  --radius: 4px;
+
+  --theme-cream: #faf8f5;
+  --theme-dark: #0f0e0c;
+  --theme-gold: #c9a96e;
+  --theme-text: #1a1916;
+  --theme-text-muted: rgba(26, 25, 22, 0.55);
+
+  --text-primary: #1a1916;
+  --text-secondary: rgba(26, 25, 22, 0.65);
+  --text-muted: rgba(26, 25, 22, 0.45);
+  --text-faint: rgba(26, 25, 22, 0.28);
+  --section-a: #faf8f5;
+  --section-b: #ffffff;
+  --section-c: #f0ede8;
+  --label-accent: #8b6b2a;
+  --divider: rgba(26, 25, 22, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Manrope', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+p { margin: 0; }
+button { font-family: 'Inter', sans-serif; }
+img { display: block; max-width: 100%; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: rgba(26, 25, 22, 0.18); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(26, 25, 22, 0.32); }
+
+@keyframes floatPill {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.08); }
+}
+
+@keyframes cordSway {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(1.2deg); }
+  75% { transform: rotate(-1.2deg); }
+}
+
+.animate-cord-sway {
+  transform-origin: top center;
+  animation: cordSway 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
