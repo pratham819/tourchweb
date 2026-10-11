@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
+import { ArrowRight } from 'lucide-react'
 
 interface HeroSectionProps {
   onStartProject: () => void
@@ -38,45 +39,40 @@ export default function HeroSection({
       onMouseLeave={handleMouseLeave}
       className="relative w-full h-screen min-h-[640px] flex flex-col justify-end bg-[#ede5c5] text-[#111111] overflow-hidden select-none"
     >
-      {/* Editorial warm paper background */}
-      <div className="absolute inset-0 bg-[#ede5c5] pointer-events-none" />
-
       {/* =========================================================================
-          CENTERPIECE: 1367 STUDIO SILHOUETTE WITH LUMINOUS AMBER VISOR
+          CENTERPIECE: WARM CREAM STREETLAMP & PENDANT LIGHTING FIXTURES
          ========================================================================= */}
-      <div className="absolute inset-0 flex items-end justify-center pointer-events-none overflow-hidden pb-0">
-        {/* Warm ambient optical glow behind the visor */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Full-bleed warm cream lighting artwork */}
+        <img
+          src="/hero-streetlights-warm.png"
+          alt="TouchStone Architectural Street & Pendant Fixtures"
+          className="w-full h-full object-cover object-[65%_center] md:object-center"
+        />
+
+        {/* Ambient warm optical glow mapped to mouse movement */}
         <div
-          className="absolute w-[320px] md:w-[420px] h-[320px] md:h-[420px] rounded-full bg-gradient-to-tr from-[#f39c12]/20 to-[#ff7b00]/25 blur-[75px] pointer-events-none transition-transform duration-700 ease-out"
+          className="absolute w-[360px] md:w-[480px] h-[360px] md:h-[480px] rounded-full bg-gradient-to-tr from-[#f39c12]/20 to-[#ff7b00]/25 blur-[90px] pointer-events-none transition-transform duration-700 ease-out"
           style={{
-            top: '20%',
-            transform: `translate(${mouseOffset.x * 25}px, ${mouseOffset.y * 18}px)`,
+            top: '18%',
+            right: '25%',
+            transform: `translate(${mouseOffset.x * 20}px, ${mouseOffset.y * 15}px)`,
           }}
         />
 
-        {/* Silhouette Cutout Figure */}
-        <div
-          className={`relative h-[72vh] sm:h-[80vh] md:h-[88vh] flex items-end justify-center transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            loaded ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-98'
-          }`}
-          style={{
-            transform: `translate(${mouseOffset.x * 12}px, ${mouseOffset.y * 6}px)`,
-          }}
-        >
-          <img
-            src="/hero-figure.png"
-            alt="Touchstone Commercial Lighting Visionary"
-            className="h-full w-auto max-h-none object-contain object-bottom drop-shadow-[0_15px_30px_rgba(0,0,0,0.12)] pointer-events-none select-none"
-          />
-        </div>
+        {/* Soft warm gradient on left so the headline reads with crisp editorial clarity */}
+        <div className="absolute inset-y-0 left-0 w-full sm:w-1/2 md:w-2/5 bg-gradient-to-r from-[#ede5c5]/90 via-[#ede5c5]/50 to-transparent z-[2]" />
+
+        {/* Subtle bottom edge gradient to harmonize with the next section */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#ede5c5] via-[#ede5c5]/70 to-transparent z-[2]" />
       </div>
 
       {/* =========================================================================
-          BOTTOM ROW: EDITORIAL TYPOGRAPHY & ELECTRIC CALL CTA (EXACT 1367 LAYOUT)
+          BOTTOM ROW: EDITORIAL TYPOGRAPHY & RADIANT CTA BUTTON
          ========================================================================= */}
       <div className="relative z-10 w-full px-6 sm:px-10 md:px-14 lg:px-16 pb-8 sm:pb-10 md:pb-12 pointer-events-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-10">
-          {/* Bottom Left: Clean Editorial Headline (matching 1367 size & two-tone style) */}
+          {/* Bottom Left: Clean Editorial Headline matching the present website copy */}
           <div
             className={`max-w-md transition-all duration-1000 delay-100 ease-out ${
               loaded ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
@@ -94,7 +90,7 @@ export default function HeroSection({
             </h1>
           </div>
 
-          {/* Bottom Right: Monospace Statement + High-Contrast Orange CTA Button */}
+          {/* Bottom Right: Monospace Statement + High-Contrast Radiant Orange CTA Button */}
           <div
             className={`flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7 transition-all duration-1000 delay-200 ease-out shrink-0 ${
               loaded ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
@@ -115,10 +111,11 @@ export default function HeroSection({
 
             <button
               onClick={onStartProject}
-              className="px-8 py-4 rounded-full bg-[#f0ede8] hover:bg-[#e4e0d7] active:scale-98 text-[#111111] font-bold text-xs uppercase tracking-[0.14em] transition-all duration-300 border border-black/10 shadow-sm hover:shadow-md hover:-translate-y-0.5 cursor-pointer whitespace-nowrap text-center"
+              className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#ede5c5] hover:bg-[#e4dcba] text-[#111111] font-bold text-xs uppercase tracking-[0.16em] transition-all duration-300 border border-[#d8cfba]/60 shadow-[0_4px_18px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_24px_rgba(237,229,197,0.35)] hover:-translate-y-0.5 active:scale-98 cursor-pointer whitespace-nowrap text-center"
               style={{ fontFamily: '"Space Grotesk", "Manrope", sans-serif' }}
             >
-              BOOK A CALL
+              <span>BOOK A CALL</span>
+              <ArrowRight className="w-4 h-4 text-[#c4820a] group-hover:translate-x-1.5 transition-transform" />
             </button>
           </div>
         </div>
