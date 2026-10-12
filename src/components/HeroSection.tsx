@@ -37,18 +37,24 @@ export default function HeroSection({
       ref={sectionRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full h-screen min-h-[640px] flex flex-col justify-end bg-[#ede5c5] text-[#111111] overflow-hidden select-none"
+      className="relative w-full h-screen min-h-[640px] flex flex-col justify-end bg-[#14181c] text-white overflow-hidden select-none"
     >
       {/* =========================================================================
-          CENTERPIECE: WARM CREAM STREETLAMP & PENDANT LIGHTING FIXTURES
+          CENTERPIECE: ARCHITECTURAL STREETLAMP & PENDANT LIGHTING FIXTURES
          ========================================================================= */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Full-bleed warm cream lighting artwork */}
-        <img
-          src="/hero-streetlights-warm.png"
-          alt="TouchStone Architectural Street & Pendant Fixtures"
-          className="w-full h-full object-cover object-[65%_center] md:object-center"
-        />
+        {/* Full-bleed nocturnal lighting artwork with WebP + PNG fallback */}
+        <picture className="w-full h-full block">
+          <source srcSet="/hero-streetlights-clean.webp" type="image/webp" />
+          <img
+            src="/hero-streetlights-clean.png"
+            alt="TouchStone Architectural Street & Pendant Fixtures"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            className="w-full h-full object-cover object-[65%_center] md:object-center"
+          />
+        </picture>
 
         {/* Ambient warm optical glow mapped to mouse movement */}
         <div
@@ -60,11 +66,11 @@ export default function HeroSection({
           }}
         />
 
-        {/* Soft warm gradient on left so the headline reads with crisp editorial clarity */}
-        <div className="absolute inset-y-0 left-0 w-full sm:w-1/2 md:w-2/5 bg-gradient-to-r from-[#ede5c5]/90 via-[#ede5c5]/50 to-transparent z-[2]" />
+        {/* Soft dark vignette on left so editorial headline reads with crisp clarity */}
+        <div className="absolute inset-y-0 left-0 w-full sm:w-1/2 md:w-2/5 bg-gradient-to-r from-[#14181c]/80 via-[#14181c]/40 to-transparent z-[2]" />
 
-        {/* Subtle bottom edge gradient to harmonize with the next section */}
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#ede5c5] via-[#ede5c5]/70 to-transparent z-[2]" />
+        {/* Smooth bottom edge transition to harmonize with the next section */}
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#14181c]/90 via-[#14181c]/40 to-transparent z-[2]" />
       </div>
 
       {/* =========================================================================
@@ -79,14 +85,14 @@ export default function HeroSection({
             }`}
           >
             <h1
-              className="text-[clamp(28px,3.8vw,52px)] font-bold tracking-[-0.03em] leading-[1.05] text-[#111111]"
+              className="text-[clamp(28px,3.8vw,52px)] font-bold tracking-[-0.03em] leading-[1.05] text-white"
               style={{ fontFamily: '"Space Grotesk", "Manrope", sans-serif' }}
             >
               <span>Custom Lighting</span>
               <br />
               <span>Development for</span>
               <br />
-              <span className="text-[#8e897c]">Growing Spaces.</span>
+              <span className="text-[#f59e0b]">Growing Spaces.</span>
             </h1>
           </div>
 
@@ -97,7 +103,7 @@ export default function HeroSection({
             }`}
           >
             <p
-              className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.05em] text-[#3e3c36] leading-[1.4] max-w-[240px]"
+              className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.05em] text-neutral-300/80 leading-[1.4] max-w-[240px]"
               style={{ fontFamily: '"Space Grotesk", monospace' }}
             >
               WE COLLABORATE WITH
@@ -111,11 +117,11 @@ export default function HeroSection({
 
             <button
               onClick={onStartProject}
-              className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#ede5c5] hover:bg-[#e4dcba] text-[#111111] font-bold text-xs uppercase tracking-[0.16em] transition-all duration-300 border border-[#d8cfba]/60 shadow-[0_4px_18px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_24px_rgba(237,229,197,0.35)] hover:-translate-y-0.5 active:scale-98 cursor-pointer whitespace-nowrap text-center"
+              className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#f59e0b] hover:bg-[#fbbf24] text-[#111111] font-bold text-xs uppercase tracking-[0.16em] transition-all duration-300 shadow-[0_4px_24px_rgba(245,158,11,0.35)] hover:shadow-[0_8px_32px_rgba(245,158,11,0.55)] hover:-translate-y-0.5 active:scale-98 cursor-pointer whitespace-nowrap text-center"
               style={{ fontFamily: '"Space Grotesk", "Manrope", sans-serif' }}
             >
               <span>BOOK A CALL</span>
-              <ArrowRight className="w-4 h-4 text-[#c4820a] group-hover:translate-x-1.5 transition-transform" />
+              <ArrowRight className="w-4 h-4 text-[#111111] group-hover:translate-x-1.5 transition-transform" />
             </button>
           </div>
         </div>

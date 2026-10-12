@@ -117,7 +117,7 @@ export default function Nav({ page, setPage, navigateToProject }: NavProps) {
   }
 
   // Dark header detection when on dark background pages
-  const isDarkPage = (page === 'manufacturing' || page === 'project-detail') && !scrolled
+  const isDarkPage = (page === 'home' || page === 'manufacturing' || page === 'project-detail') && !scrolled
   const textClass = isDarkPage
     ? 'text-white/80 hover:text-white'
     : 'text-neutral-800/80 hover:text-black'
